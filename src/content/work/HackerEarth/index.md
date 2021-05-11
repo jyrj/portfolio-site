@@ -2,7 +2,7 @@
 company: "HackerEarth"
 location: "Remote, IN"
 position: "University Evangelist"
-tags: ["Community", "Coding", "Campus ambassador"]
+tags: ["Coding", "Campus ambassador"]
 startDate: "2020-03-04"
 endDate: "2021-06-01"
 ---

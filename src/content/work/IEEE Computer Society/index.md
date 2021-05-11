@@ -2,7 +2,7 @@
 company: "IEEE Computer Society"
 location: "Kerala Chapter, IN"
 position: "Hub Student Representative"
-tags: ["Volunteer", "Coordinator", "Community", "Representative"]
+tags: ["Volunteer", "Representative"]
 startDate: "2021-01-13"
 endDate: "2022-01-01"
 ---

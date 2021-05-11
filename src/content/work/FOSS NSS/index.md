@@ -2,7 +2,7 @@
 company: "FOSS Cell"
 location: "NSS College of Engineering, Palakkad"
 position: "Student Coordinator"
-tags: ["FOSS", "Open source", "Coordinator", "Community"]
+tags: ["FOSS", "Open source", "Community"]
 startDate: "2021-05-04"
 endDate: "2022-06-04"
 ---

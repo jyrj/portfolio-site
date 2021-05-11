@@ -2,7 +2,7 @@
 company: "Ministry of Social Justice and Empowerment"
 location: "Govt of India, Remote"
 position: "Internship"
-tags: ["Social", "Community", "Awareness", "Government"]
+tags: ["Social","Internship"]
 startDate: "2020-11-13"
 endDate: "2021-02-28"
 ---
