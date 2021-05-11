@@ -50,16 +50,10 @@ See me [live!](https://gatsby-starter-portfolio.herokuapp.com/)
 
 ### Lighthouse screenshots
 
-![Test 1](./assets/test-1.png)
-![Test 2](./assets/test-2.png)
+
 
 ### App Screenshots
 
-Light Mode\
-<img src="./assets/light-mode.png" alt="Light Mode" width="700">
-<br><br>
-Dark Mode\
-<img src="./assets/dark-mode.png" alt="Dark Mode" width="700">
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
