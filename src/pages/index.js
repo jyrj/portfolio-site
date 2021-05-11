@@ -38,7 +38,7 @@ export default ({ data }) => {
           <p>
             <i>
               A {occupation}, &nbsp;
-              {dark ? `Avid hacker, love to build new things, try new stuffs` : `Computer Science & Engineering student, self-kearner, free and open source enthusiast`}
+              {dark ? `Avid hacker, love to build new things, try new stuffs` : `Computer Science & Engineering student, self-learner, free and open source enthusiast`}
             </i>
           </p>
         </Container>
