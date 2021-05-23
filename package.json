@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -33,6 +33,7 @@
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-remark-images": "^5.1.0",
     "gatsby-source-filesystem": "^2.3.14",
+    "gatsby-source-hashnode-devblog": "^0.2.0",
     "gatsby-transformer-remark": "^2.8.19",
     "gatsby-transformer-sharp": "^2.5.7",
     "howler": "^2.2.0",
@@ -40,7 +41,8 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "y18n": "^5.0.8"
   },
   "devDependencies": {
     "eslint-config-react-app": "^5.2.1",

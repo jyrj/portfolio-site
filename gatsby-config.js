@@ -113,5 +113,11 @@ module.exports = {
         showSpinner: true,
       },
     },
+    {
+      resolve:  'gatsby-source-hashnode-devblog',
+      options: {
+        username:  'jyrj', // Your username on hashnode without `@`.
+      }
+    },
   ],
 }
