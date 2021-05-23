@@ -4,6 +4,18 @@ import { PageLayout, PageTitle, BlogLink } from "../components"
 import { SEO, Utils } from "../utils"
 import { Container, Form, FormControl } from "react-bootstrap"
 
+
+export default () => {
+  return (
+    <PageLayout>
+      <PageTitle>404: Not Found</PageTitle>
+    </PageLayout>
+  )
+}
+
+
+/*
+
 export default ({ data }) => {
   const [state, setState] = useState({
     filteredData: [],
@@ -95,6 +107,7 @@ export const query = graphql`
     }
   }
 `
+*/
 /*
 
 export const query = graphql`
