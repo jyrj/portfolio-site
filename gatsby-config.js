@@ -13,7 +13,18 @@ module.exports = {
     lastName: `J`,
     description: `Jayaraj's personal site`,
     occupation: `Developer`,
-    keywords: [`Jayaraj`, `J`, `Personal`, `Blog`, `Resume`, `Projects`, `Work`, 'Jayaraj J', 'jayaraj', 'jyrj'],
+    keywords: [
+      `Jayaraj`,
+      `J`,
+      `Personal`,
+      `Blog`,
+      `Resume`,
+      `Projects`,
+      `Work`,
+      "Jayaraj J",
+      "jayaraj",
+      "jyrj",
+    ],
     siteUrl:
       process.env.URL || process.env.DEPLOY_URL || `http://localhost:8000`,
     unemployed: true,
@@ -38,7 +49,7 @@ module.exports = {
         title: `Think Like a Monk: Train Your Mind for Peace and Purpose Every Day`,
         author: `Jay Shetty`,
         link: `https://www.goodreads.com/book/show/51942513-think-like-a-monk`,
-      }
+      },
     ],
     showsList: [
       {
@@ -114,10 +125,17 @@ module.exports = {
       },
     },
     {
-      resolve:  'gatsby-source-hashnode-devblog',
+      resolve: "gatsby-source-hashnode-devblog",
       options: {
-        username:  'jyrj', // Your username on hashnode without `@`.
-      }
+        username: "jyrj", // Your username on hashnode without `@`.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "devblogPost", // Created Node type name
+        imagePath: "coverImage", // The image url name in test node type
+      },
     },
   ],
 }

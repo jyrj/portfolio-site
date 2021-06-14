@@ -4,18 +4,6 @@ import { PageLayout, PageTitle, BlogLink } from "../components"
 import { SEO, Utils } from "../utils"
 import { Container, Form, FormControl } from "react-bootstrap"
 
-
-export default () => {
-  return (
-    <PageLayout>
-      <PageTitle>404: Not Found</PageTitle>
-    </PageLayout>
-  )
-}
-
-
-/*
-
 export default ({ data }) => {
   const [state, setState] = useState({
     filteredData: [],
@@ -89,29 +77,6 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allDevblogPost(sort: { fields: [dateAdded], order: DESC }) {
-      totalCount
-      edges {
-        node {
-          id
-          cuid
-          slug
-          title
-          type
-          dateAdded
-          contentMarkdown
-          brief
-          coverImage
-        }
-      }
-    }
-  }
-`
-*/
-/*
-
-export const query = graphql`
-  query {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/blog/" } }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -154,4 +119,3 @@ export const query = graphql`
     }
   }
 `
-*/
