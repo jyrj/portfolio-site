@@ -14,7 +14,7 @@ export default props => {
         <Card.Subtitle className="mb-2 text-muted">
           {props.subtitle}
         </Card.Subtitle>
-        <Card.Text>{props.excerpt}</Card.Text>
+        <Card.Text>{(props.excerpt).slice(0,100) + '......read more'}</Card.Text>
       </Card.Body>
     </Card>
   )
