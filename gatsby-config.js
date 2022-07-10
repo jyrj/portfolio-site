@@ -127,7 +127,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
-        nodeType: "devblogPost", // Created Node type name
+        // Created Node type name
         imagePath: "coverImage", // The image url name in test node type
       },
     },
