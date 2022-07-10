@@ -1,43 +1,42 @@
 import React from "react"
 import { graphql } from "gatsby"
 import PostTemplate from "./post-template"
-import { Remarkable } from 'remarkable';
-var md = new Remarkable();
 
 const SubTitle = ({ ttr, date, author }) => (
   <h5 className="text-muted mb-5">
-    Time to read: {"3"} <small>min</small> | {date} | {author}
+    Time to read: {ttr} <small>min</small> | {date} | {author}
   </h5>
 )
 
 export default ({ data }) => {
-  const post = data.devblogPost
-  console.log("dsfhdslfl ksdjpfo;dkj [osdkf[ kdis[f psdfk j;sfkjg ;kf; k'sfgkl '")
+  const post = data.markdownRemark
   return (
     <PostTemplate
-      title={post.title}
+      title={post.frontmatter.title}
       subTitle={
         <SubTitle
-          ttr={"3 minutes"}
-          date={post.dateAdded}
-          author={"Jayaraj"}
+          ttr={post.timeToRead}
+          date={post.frontmatter.date}
+          author={post.frontmatter.author}
         />
       }
-      excerpt={post.brief}
-      html={post.contentMarkdown}
+      excerpt={post.excerpt}
+      html={post.html}
     />
   )
 }
 
 export const query = graphql`
-query ($slug: String!){
-  devblogPost(slug: { eq: $slug }) {
-    title
-    dateAdded(formatString: "DD MMMM, YYYY")
-    brief
-    slug
-    contentMarkdown
-
-}
-}
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        author
+        date(formatString: "DD MMMM, YYYY")
+      }
+      excerpt
+      timeToRead
+    }
+  }
 `

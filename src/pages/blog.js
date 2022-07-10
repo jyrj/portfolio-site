@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { PageLayout, PageTitle, BlogLink } from "../components"
-import { SEO } from "../utils"
+import { SEO, Utils } from "../utils"
 import { Container, Form, FormControl } from "react-bootstrap"
 
 export default ({ data }) => {
@@ -10,19 +10,25 @@ export default ({ data }) => {
     query: "",
   })
 
-  const allPosts = data.allDevblogPost.edges || []
+  const allFeaturedImages = data.allFile.edges || []
+  const allPosts = data.allMarkdownRemark.edges || []
+  const regex = /\/[blog].*\/|$/
+  const featuredImageMap = Utils.getImageMap(allFeaturedImages, regex)
 
   const handleChange = e => {
     const query = e.target.value
 
     const filteredData = allPosts.filter(post => {
       // query will run on the following fields
-      const { brief, title } = post.node
+      const { description, title, tags, author } = post.node.frontmatter
       // standardize query
       const stdQuery = query.toLowerCase()
       return (
-        (brief && brief.toLowerCase().includes(stdQuery)) ||
-        title.toLowerCase().includes(stdQuery)
+        post.node.excerpt.toLowerCase().includes(stdQuery) ||
+        (description && description.toLowerCase().includes(stdQuery)) ||
+        title.toLowerCase().includes(stdQuery) ||
+        author.toLowerCase().includes(stdQuery) ||
+        (tags && tags.join("").toLowerCase().includes(stdQuery))
       )
     })
 
@@ -56,11 +62,11 @@ export default ({ data }) => {
         {filteredPosts.map(({ node }) => (
           <div key={node.id} className="p-3">
             <BlogLink
-              to={node.slug}
-              featuredImage={node.localImage.childImageSharp.fluid}
-              title={node.title}
-              subtitle={node.dateAdded}
-              excerpt={node.brief}
+              to={node.fields.slug}
+              featuredImage={featuredImageMap[node.fields.slug]}
+              title={node.frontmatter.title}
+              subtitle={node.frontmatter.date}
+              excerpt={node.excerpt}
             />
           </div>
         ))}
@@ -71,45 +77,45 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allDevblogPost(sort: { fields: [dateAdded], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       totalCount
       edges {
         node {
           id
-          title
-          brief
-          dateAdded(formatString: "DD MMMM, YYYY")
-          slug
-          coverImage
-          localImage {
-            childImageSharp {
-              fluid(maxWidth: 400) {
-                ...GatsbyImageSharpFluid
-              }
+          frontmatter {
+            title
+            description
+            tags
+            author
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+    allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        relativePath: { regex: "/feature/" }
+        relativeDirectory: { regex: "/content/blog/" }
+      }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
             }
           }
+          relativePath
         }
       }
     }
   }
 `
-
-// allFile(
-//   filter: {
-//     extension: { eq: "jpg" }
-//     relativePath: { regex: "/feature/" }
-//     relativeDirectory: { regex: "/content/blog/" }
-//   }
-// ) {
-//   edges {
-//     node {
-//       childImageSharp {
-//         fluid(maxWidth: 400) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//       relativePath
-//     }
-//   }
-// }
-// }
