@@ -125,12 +125,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-hashnode-devblog",
-      options: {
-        username: "jyrj", // Your username on hashnode without `@`.
-      },
-    },
-    {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: "devblogPost", // Created Node type name
